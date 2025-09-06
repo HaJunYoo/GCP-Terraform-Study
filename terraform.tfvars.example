@@ -1,0 +1,14 @@
+# Copy this file to terraform.tfvars and update with your values
+
+project_id = "your-gcp-project-id"
+region     = "asia-northeast3"  # Seoul region
+zone       = "asia-northeast3-a"
+environment = "dev"
+
+# Storage configuration
+bucket_names = [
+  "terraform-storage-1",
+  "terraform-storage-2"
+]
+storage_class = "STANDARD"
+terraform_state_bucket = ""
