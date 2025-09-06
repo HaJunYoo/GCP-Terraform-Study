@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket = var.terraform_state_bucket
+    bucket = "hj-gcp-terraform-bucket"
     prefix = "terraform/state"
   }
 }

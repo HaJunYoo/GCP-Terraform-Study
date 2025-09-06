@@ -11,8 +11,6 @@
 ├── outputs.tf                # 전역 출력
 ├── terraform.tfvars.example  # 변수 값 예시
 ├── .pre-commit-config.yaml   # pre-commit 설정
-├── scripts/
-│   └── terraform-lint.sh     # Terraform 린팅 스크립트
 └── modules/                  # 모듈 디렉토리
     ├── storage/              # Cloud Storage 모듈
     ├── compute/              # Compute Engine 모듈
@@ -62,33 +60,14 @@ terraform apply
 이 프로젝트는 다음 pre-commit 훅을 사용합니다:
 
 ### Terraform 관련 훅
-- **terraform_fmt**: 코드 포맷팅
-- **terraform_validate**: 구문 검증
-- **terraform_tflint**: 코드 품질 및 모범 사례 검사
-- **terraform_tfsec**: 보안 취약점 스캔
-- **terraform_docs**: README 자동 업데이트
+- **terraform-fmt**: 코드 포맷팅 (`terraform fmt -recursive`)
+- **terraform-validate**: 구문 검증 (`terraform validate`)
 
 ### 일반적인 훅
 - **trailing-whitespace**: 불필요한 공백 제거
 - **end-of-file-fixer**: 파일 끝 줄바꿈 추가
 - **check-yaml**: YAML 파일 구문 검사
 - **check-added-large-files**: 대용량 파일 체크
-- **check-merge-conflict**: 병합 충돌 체크
-- **check-case-conflict**: 파일명 대소문자 충돌 체크
-
-### 필요한 도구 설치
-
-```bash
-# TFLint 설치
-brew install tflint
-# 또는
-curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
-
-# tfsec 설치
-brew install tfsec
-# 또는
-go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
-```
 
 ### 수동 실행
 
@@ -96,8 +75,11 @@ go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
 # 모든 파일에 대해 pre-commit 실행
 pre-commit run --all-files
 
-# 종합 Terraform 린팅 실행 (fmt, validate, tflint, tfsec)
-./scripts/terraform-lint.sh
+# Terraform 포맷팅만 실행
+terraform fmt -recursive
+
+# Terraform 검증만 실행
+terraform validate
 ```
 
 ## 백엔드 설정
