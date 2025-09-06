@@ -11,4 +11,39 @@ bucket_names = [
   "terraform-storage-2"
 ]
 storage_class = "STANDARD"
-terraform_state_bucket = ""
+
+# Compute Engine configuration
+instances = {
+  web-server = {
+    name         = "web-server-seoul"
+    machine_type = "e2-medium"
+    zone         = "asia-northeast3-a"  # Seoul zone
+    image        = "debian-cloud/debian-12"
+    disk_size    = 20
+    tags         = ["web", "dev", "seoul"]
+    labels = {
+      role = "web-server"
+      team = "backend"
+    }
+    metadata = {
+      startup-script = "#!/bin/bash\napt-get update\napt-get install -y nginx"
+    }
+  }
+
+  api-server = {
+    name         = "api-server-seoul"
+    machine_type = "n1-standard-1"
+    zone         = "asia-northeast3-b"  # Seoul zone
+    image        = "ubuntu-os-cloud/ubuntu-2204-lts"
+    disk_size    = 30
+    enable_public_ip = true
+    tags         = ["api", "prod", "seoul"]
+    labels = {
+      role = "api-server"
+      team = "backend"
+    }
+    metadata = {
+      startup-script = "#!/bin/bash\napt-get update\napt-get install -y docker.io"
+    }
+  }
+}
