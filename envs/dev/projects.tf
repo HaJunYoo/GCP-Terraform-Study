@@ -16,7 +16,9 @@ module "network_project" {
     "compute.googleapis.com",
     "servicenetworking.googleapis.com",
     "dns.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
+    "cloudresourcemanager.googleapis.com",
+    "cloudbilling.googleapis.com",
+    "monitoring.googleapis.com"
   ]
 }
 
