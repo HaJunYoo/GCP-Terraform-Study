@@ -7,8 +7,8 @@
 ```
 .
 ├── main.tf                    # 메인 Terraform 설정
-├── variables.tf              # 전역 변수
-├── outputs.tf                # 전역 출력
+├── _variables.tf              # 전역 변수
+├── _outputs.tf                # 전역 출력
 ├── terraform.tfvars.example  # 변수 값 예시
 ├── .pre-commit-config.yaml   # pre-commit 설정
 └── modules/                  # 모듈 디렉토리
