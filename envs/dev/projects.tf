@@ -16,9 +16,7 @@ module "network_project" {
     "compute.googleapis.com",
     "servicenetworking.googleapis.com",
     "dns.googleapis.com",
-    "cloudresourcemanager.googleapis.com",
-    "cloudbilling.googleapis.com",
-    "monitoring.googleapis.com"
+    "cloudresourcemanager.googleapis.com"
   ]
 }
 
@@ -41,7 +39,6 @@ module "infrastructure_project" {
     "container.googleapis.com",
     "sqladmin.googleapis.com",
     "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com",
-    "cloudbilling.googleapis.com"
+    "iam.googleapis.com"
   ]
 }

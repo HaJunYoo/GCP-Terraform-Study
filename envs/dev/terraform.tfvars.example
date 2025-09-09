@@ -15,15 +15,15 @@ currency_code    = "USD"  # Change to KRW if using Korean Won
 # Budget alert thresholds (default: 50%, 90% current spend, 100% forecasted)
 threshold_rules = [
   {
-    threshold_percent = 50
+    threshold_percent = 0.5
     spend_basis       = "CURRENT_SPEND"
   },
   {
-    threshold_percent = 80
+    threshold_percent = 0.8
     spend_basis       = "CURRENT_SPEND"
   },
   {
-    threshold_percent = 100
+    threshold_percent = 1.0
     spend_basis       = "FORECASTED_SPEND"
   }
 ]
