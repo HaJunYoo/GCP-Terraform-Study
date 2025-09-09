@@ -24,7 +24,6 @@ terraform/
 │   ├── storage_legacy/               # 레거시 스토리지 모듈
 │   └── compute_legacy/               # 레거시 컴퓨트 모듈
 ├── main.tf                           # 루트 프로바이더 설정
-├── CLAUDE.md                         # AI 개발 가이드
 ├── .pre-commit-config.yaml           # 코드 품질 관리
 └── .gitignore                        # 보안 파일 제외
 ```
