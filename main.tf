@@ -1,19 +1,16 @@
-# Storage module
-module "storage" {
-  source = "./modules/storage"
+# Provider configuration
+terraform {
+  required_version = ">= 1.0"
 
-  project_id    = var.project_id
-  region        = var.region
-  bucket_names  = var.bucket_names
-  storage_class = var.storage_class
-  environment   = var.environment
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.38"
+    }
+  }
 }
 
-# Compute module
-module "compute" {
-  source = "./modules/compute"
-
-  project_id  = var.project_id
-  environment = var.environment
-  instances   = var.instances
+# Default provider configuration
+provider "google" {
+  region = "asia-northeast3" # Seoul region
 }

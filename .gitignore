@@ -37,7 +37,4 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-## AI
-CLAUDE.md
-
 # End of https://www.toptal.com/developers/gitignore/api/terraform

@@ -18,3 +18,14 @@ resource "google_storage_bucket" "buckets" {
     managed-by  = "terraform"
   }
 }
+
+# resource "google_storage_bucket" "terraform_state" {
+#   force_destroy = false
+#   name          = "${var.project_id}-terraform-bucket"
+#   location      = var.region
+#   storage_class = "STANDARD"
+
+#   versioning {
+#     enabled = true
+#   }
+# }

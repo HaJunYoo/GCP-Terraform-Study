@@ -1,17 +1,19 @@
+# Billing configuration
+variable "billing_account_id" {
+  type        = string
+  description = "Billing account ID (format: 0123AB-4567CD-8901EF)"
+}
+
+# Legacy variables (for existing resources)
 variable "project_id" {
   type        = string
-  description = "The GCP project ID"
+  description = "The existing GCP project ID for legacy resources"
 }
 
 variable "region" {
   type        = string
   description = "The GCP region"
   default     = "asia-northeast3" # Seoul region
-}
-
-variable "terraform_state_bucket" {
-  type        = string
-  description = "The GCP bucket name for storing Terraform state"
 }
 
 variable "zone" {
@@ -22,11 +24,11 @@ variable "zone" {
 
 variable "environment" {
   type        = string
-  description = "Environment name (dev, staging, prod)"
+  description = "Environment name"
   default     = "dev"
 }
 
-# Storage specific variables
+# Legacy storage variables
 variable "bucket_names" {
   type        = list(string)
   description = "List of bucket names to create"
@@ -39,7 +41,7 @@ variable "storage_class" {
   default     = "STANDARD"
 }
 
-# Compute Engine variables
+# Legacy compute variables
 variable "instances" {
   type = map(object({
     name                   = string
