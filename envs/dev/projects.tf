@@ -1,36 +1,14 @@
-# Network project
-module "network_project" {
+# dev project
+module "dev_project" {
   source = "../../modules/project"
 
-  project_name       = "HJ Network Hub Dev"
-  project_id         = "hj-network-hub-dev"
+  project_name       = "HJ Dev Environment"
+  project_id         = "hj-dev"
   billing_account_id = var.billing_account_id
   environment        = "dev"
 
   labels = {
-    role   = "network-hub"
-    region = "seoul"
-  }
-
-  apis = [
-    "compute.googleapis.com",
-    "servicenetworking.googleapis.com",
-    "dns.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
-  ]
-}
-
-# Infrastructure project
-module "infrastructure_project" {
-  source = "../../modules/project"
-
-  project_name       = "HJ Infrastructure Dev"
-  project_id         = "hj-infra-dev"
-  billing_account_id = var.billing_account_id
-  environment        = "dev"
-
-  labels = {
-    role   = "application-infrastructure"
+    role   = "full-stack-dev"
     region = "seoul"
   }
 
@@ -39,6 +17,14 @@ module "infrastructure_project" {
     "container.googleapis.com",
     "sqladmin.googleapis.com",
     "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com"
+    "iam.googleapis.com",
+    "dns.googleapis.com",
+    "servicenetworking.googleapis.com",
+    "logging.googleapis.com",
+    "monitoring.googleapis.com",
+    "cloudtrace.googleapis.com",
+    "containerregistry.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "secretmanager.googleapis.com"
   ]
 }

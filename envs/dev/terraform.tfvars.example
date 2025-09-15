@@ -37,3 +37,8 @@ notification_emails = [
   "admin@example.com",        # Add more emails here
   "team@example.com"          # Add more emails here
 ]
+
+vpc_auto_create_subnets = false
+vpc_mtu                 = 1460
+gcp_region              = "asia-northeast3"
+subnet_ip_range         = ["10.1.0.0/24"]
