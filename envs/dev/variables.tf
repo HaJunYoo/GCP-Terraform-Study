@@ -33,7 +33,7 @@ variable "vpc_mtu" {
 variable "gcp_region" {
   type        = string
   description = "GCP 리전"
-  default     = "asia-northeast3"
+  default     = "asia-northeast3-b"
 }
 
 variable "subnet_ip_range" {
