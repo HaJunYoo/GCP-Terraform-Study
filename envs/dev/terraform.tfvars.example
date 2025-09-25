@@ -8,37 +8,19 @@ environment        = "dev"
 
 base_project_id = "your-existing-project-id"
 
-# Budget configuration
-budget_amount    = "50"   # Monthly budget in USD (adjust as needed)
-currency_code    = "USD"  # Change to KRW if using Korean Won
-
-# Budget alert thresholds (default: 50%, 90% current spend, 100% forecasted)
-threshold_rules = [
-  {
-    threshold_percent = 0.5
-    spend_basis       = "CURRENT_SPEND"
-  },
-  {
-    threshold_percent = 0.8
-    spend_basis       = "CURRENT_SPEND"
-  },
-  {
-    threshold_percent = 1.0
-    spend_basis       = "FORECASTED_SPEND"
-  }
-]
-
-# Notification settings
-enable_budget_notifications = true
-notification_channels       = [] # Add your notification channel IDs here
-
-# Email notifications for budget alerts
-notification_emails = [
-  "admin@example.com",        # Add more emails here
-  "team@example.com"          # Add more emails here
-]
-
 vpc_auto_create_subnets = false
 vpc_mtu                 = 1460
 gcp_region              = "asia-northeast3"
 subnet_ip_range         = ["10.1.0.0/24"]
+
+master_authorized_networks = [
+    {
+      cidr_block   = "your-office-cidr"
+      display_name = "office-network"
+    }
+  ]
+
+# GKE IP ranges - ensure these don't overlap with subnet ranges
+pods_ip_range     = "10.x.0.0/21"    # Kubernetes pods IP range (use different /21 block)
+services_ip_range = "10.y.0.0/21"    # Kubernetes services IP range (use different /21 block)
+master_ip_range   = "10.z.0.0/28"    # GKE master nodes IP range (use /28 block)

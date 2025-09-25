@@ -3,7 +3,7 @@ module "dev_project" {
   source = "../../modules/project"
 
   project_name       = "HJ Dev Environment"
-  project_id         = "hj-dev"
+  project_id         = "hj-dev-project"
   billing_account_id = var.billing_account_id
   environment        = "dev"
 

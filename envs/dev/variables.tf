@@ -41,3 +41,31 @@ variable "subnet_ip_range" {
   description = "서브넷 IP 범위 리스트"
   default     = ["10.1.0.0/24"]
 }
+
+variable "master_authorized_networks" {
+  description = "List of master authorized networks"
+  type = list(object({
+    cidr_block   = string
+    display_name = string
+  }))
+  default = [{
+    cidr_block   = "10.0.0.0/8"
+    display_name = "private-networks"
+  }]
+}
+
+# Network specific variables
+variable "pods_ip_range" {
+  type        = string
+  description = "IP range for Kubernetes pods"
+}
+
+variable "services_ip_range" {
+  type        = string
+  description = "IP range for Kubernetes services"
+}
+
+variable "master_ip_range" {
+  description = "CIDR block for GKE master nodes"
+  type        = string
+}
