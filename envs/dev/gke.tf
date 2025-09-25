@@ -70,7 +70,7 @@ module "gke_cluster" {
   project_id   = module.dev_project.project_id
   cluster_name = "${local.name}-gke-cluster"
   region       = var.gcp_region
-  node_zones   = data.google_compute_zones.available.names
+  node_zones   = ["asia-northeast3-b"] # Restrict to single zone
 
   network    = module.network.network_self_link
   subnetwork = module.network.first_subnet_self_link
@@ -106,7 +106,7 @@ module "gke_cluster" {
       auto_upgrade = true
 
       preemptible  = true
-      machine_type = "e2-medium"
+      machine_type = "e2-small"
       disk_size_gb = 20
       disk_type    = "pd-standard"
 
