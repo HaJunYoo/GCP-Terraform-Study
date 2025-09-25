@@ -1,9 +1,3 @@
-data "google_compute_zones" "available" {
-  project = module.dev_project.project_id
-  region  = var.gcp_region
-  status  = "UP"
-}
-
 locals {
   name = "hj-${var.environment}"
 }
